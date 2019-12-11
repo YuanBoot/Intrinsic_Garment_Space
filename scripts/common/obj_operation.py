@@ -4,7 +4,6 @@ import os
 import sys
 
 
-
 def objimport(fn):
 	with open(fn) as f:
 		content = f.readlines()
@@ -12,6 +11,7 @@ def objimport(fn):
 	v = [np.array(x.split(' ')[1:]).astype(np.float).tolist() for x in content if len(x)>3 and x[0] =='v']
 	f = [np.array(x.split(' ')[1:]).astype(np.int).tolist() for x in content if len(x)>3 and x[0] =='f']	
 	return v,f
+
 
 def objimport_v(fn):
 	with open(fn) as f:

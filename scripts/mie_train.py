@@ -10,8 +10,8 @@ import torch.optim as optim
 from datetime import datetime
 from torch.autograd import Variable
 
-from basis_my_arch_relu6 import *
-from mie_my_arch_softplus import *
+from basis_model import *
+from mie_model import *
 
 from common import setting as SET
 from common import tools
@@ -31,12 +31,13 @@ frnum = SET.PRE_FRAME
 modim = SET.MOTION_DIM
 
 
-fnid = 'bs_relu6'
-fname_str = 'pose_%s_train_ae_shuf.%s.weight=%s.err_.lr=%s.modim=%s.tardim=%s.batchseq=%s%s.dp=%s' % (str(frnum),fnid,str(ws),str(lrate),str(modim),str(tardim),str(batchsize_seq_1),str(batchsize_seq_2),str(dp))
+fnid = "bs_relu6"
+fname_str = "pose_%s_train_ae_shuf.%s.weight=%s.err_.lr=%s.modim=%s.tardim=%s.dp=%s" % (str(frnum),fnid,str(ws),str(lrate),str(modim),str(tardim),str(dp))
 fname = os.path.join(SET.MIE, fname_str)
+print(fname)
 
 basis_tardim = SET.TRAIN_DIM
-basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4134, 1800, 500, 120, 30].dp=0.02.net"
+basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
 basis_dp = SET.DP
 basis_net = basis(basis_tardim,basis_dp).cuda()
 basis_net.load_state_dict(torch.load(os.path.join(SET.BASIS, basis_name)))

@@ -9,8 +9,8 @@ from datetime import datetime
 from torch.autograd import Variable
 import torch.optim as optim
 
-from basis_my_arch_relu6 import *
-from mie_my_arch_softplus import *
+from basis_model import *
+from mie_model import *
 
 from common import obj_operation as obj
 from common import setting as SET

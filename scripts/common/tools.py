@@ -5,10 +5,6 @@ import numpy as np
 from common import setting as SET
 
 
-def my_loss(input, target):
-    return torch.sum(((input - target)**2)) / input.data.nelement()
-
-
 def get_train_list():
 
     with open(SET.TRAIN_LIST_PATH) as f:

@@ -8,7 +8,7 @@ import glob
 import torch.optim as optim
 from datetime import datetime
 from torch.autograd import Variable
-from basis_my_arch_relu6 import *
+from basis_model import *
 
 from common import obj_operation as obj
 from common import setting as SET
@@ -16,7 +16,7 @@ from common import tools
 
 
 # net
-net_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4134, 1800, 500, 120, 30].dp=0.02.net"
+net_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
 
 # Training Parameters
 vnum = SET.VERTS_NUM
@@ -68,8 +68,8 @@ for idx in range(samplenum):
 	u_ = np.multiply(w.cpu().data.numpy().reshape(vnum,3),data_std)+data_mean
 	u = np.dot(u_,myr)+np.tile(myt,[vnum,1])
 
-	loss_1 = tools.my_loss(w,y)
-	loss_2 = tools.my_loss(torch.FloatTensor(u_),torch.FloatTensor(x_))
+	loss_1 = tools.calculate_dist(w,y)
+	loss_2 = tools.calculate_dist(torch.FloatTensor(u_),torch.FloatTensor(x_))
 	
 	alll_1 = alll_1 + float(loss_1.cpu())
 	alll_2 = alll_2 + float(loss_2.cpu())

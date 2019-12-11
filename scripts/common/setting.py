@@ -38,9 +38,10 @@ MOTION_STD = 'motion_std.npy'
 
 #Data Set
 CASE_01 = 'case_01'
+ANIM_01 = 'anim_01'
 
 #Charactor
-JOINT_LIST = [0,1,2,3,6,7,120,122,125,128,155,157,160,163,191,192,193,194,195,196,197,198]
+JOINT_LIST = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,30,31,56,57,58,59]
 JOINT_NUM = len(JOINT_LIST)
 
 # Net Parameters
@@ -61,7 +62,7 @@ BATCH_SEQ = [40,100,100,200,400,400,800,800,1600,1600]
 PRE_FRAME = 20
 MOTION_DIM = [PRE_FRAME*JOINT_NUM*3, 480, 120, 30]
 
-# latent
+# Latent
 MIE_LERNING_RATE = 1e-3
 MIE_BATCHSIZE_EVAL = 20
 MIE_BATCHSIZE_01 = [4,8,8,8,16,16,16,16]
@@ -74,8 +75,8 @@ WS = [1000., 1.]
 
 
 # Charactor Animation Info (one case only)
-JOINTS_ANIM = os.path.basename(glob.glob(os.path.join(ANIM, 'anim_01', '*.npy'))[0])
-JOINTS_ANIM_PATH = os.path.join(ANIM, 'anim_01', JOINTS_ANIM)
+JOINTS_ANIM = os.path.basename(glob.glob(os.path.join(ANIM, ANIM_01, '*.npy'))[0])
+JOINTS_ANIM_PATH = os.path.join(ANIM, ANIM_01, JOINTS_ANIM)
 
 
 # File name and Path
