@@ -1,2 +1,3 @@
-nnet/*
-!nnet/.gitkeep
+!nnet/.keep
+!support/.keep
+!dataset/.keep
