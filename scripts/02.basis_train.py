@@ -9,7 +9,7 @@ import sys
 from datetime import datetime
 from torch.autograd import Variable
 import torch.optim as optim
-from basis_my_arch_relu6 import *
+from basis_model import *
 
 from common import obj_operation as obj
 from common import setting as SET
@@ -62,8 +62,7 @@ tardim = SET.TRAIN_DIM
 dp = SET.DP
 weight_lap = SET.WEIGHT_LAP
 
-fname_str = 'lap_err_.relu6.w=%s.lr=%s.batchseq=%s.dim=%s.dp=%s' % (str(weight_lap), str(lrate), str(batchsize_seq), str(tardim), str(dp))
-
+fname_str = 'lap_err_.relu6.w=%s.lr=%s.dim=%s.dp=%s' % (str(weight_lap), str(lrate), str(tardim), str(dp))
 fname = os.path.join(SET.BASIS, fname_str)
 print(fname)
 
