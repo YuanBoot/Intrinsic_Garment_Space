@@ -28,14 +28,14 @@ frnum = SET.PRE_FRAME
 modim = SET.MOTION_DIM
 
 basis_tardim = SET.TRAIN_DIM
-basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4134, 1800, 500, 120, 30].dp=0.02.net"
+basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
 basis_dp = SET.DP
 basis_net = basis(basis_tardim,basis_dp).cuda()
 basis_net.load_state_dict(torch.load(os.path.join(SET.BASIS, basis_name)))
 basis_net.eval()
 
 model = mie(modim,tardim,dp).cuda()
-mie_name = 'pose_20_train_ae_shuf.bs_relu6.weight=[1000.0, 1.0].err_.lr=0.001.modim=[1320, 480, 120, 30].tardim=[30, 120, 120].batchseq=[4, 8, 8, 8, 16, 16, 16, 16][4, 4, 4, 8, 10, 10, 10, 10].dp=0.02.net'
+mie_name = 'pose_20_train_ae_shuf.bs_relu6.weight=[1000.0, 1.0].err_.lr=0.001.modim=[1260, 480, 120, 30].tardim=[30, 120, 120].dp=0.02.net'
 model.load_state_dict(torch.load(os.path.join(SET.MIE, mie_name)))
 model.eval()
 

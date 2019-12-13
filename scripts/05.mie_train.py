@@ -37,7 +37,7 @@ fname = os.path.join(SET.MIE, fname_str)
 print(fname)
 
 basis_tardim = SET.TRAIN_DIM
-basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
+basis_name = "lap_err_.relu6.w=1.0.lr=0.0001.dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
 basis_dp = SET.DP
 basis_net = basis(basis_tardim,basis_dp).cuda()
 basis_net.load_state_dict(torch.load(os.path.join(SET.BASIS, basis_name)))

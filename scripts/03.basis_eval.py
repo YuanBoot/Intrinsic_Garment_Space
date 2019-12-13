@@ -16,7 +16,7 @@ from common import tools
 
 
 # net
-net_name = "lap_err_.relu6.w=1.0.lr=0.0001.batchseq=[40, 100, 100, 200, 400, 400, 800, 800, 1600, 1600].dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
+net_name = "lap_err_.relu6.w=1.0.lr=0.0001.dim=[4524, 1800, 500, 120, 30].dp=0.02.net"
 
 # Training Parameters
 vnum = SET.VERTS_NUM
